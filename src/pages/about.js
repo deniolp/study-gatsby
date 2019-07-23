@@ -1,7 +1,9 @@
 import React from 'react';
 
-const AboutPage = () => {
-  return (
+import Layout from '../components/layout';
+
+const AboutPage = () => (
+  <Layout>
     <div>
       <h1>About Page</h1>
       <p>
@@ -12,7 +14,7 @@ const AboutPage = () => {
         duis ullamco mollit qui veniam eiusmod laboris adipisicing.
       </p>
     </div>
-  );
-};
+  </Layout>
+);
 
 export default AboutPage;
