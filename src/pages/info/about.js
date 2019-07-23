@@ -4,6 +4,8 @@ import {Link} from 'gatsby';
 import Layout from '../../components/layout';
 import Greeting from '../../components/greeting';
 
+import GatsbyAstronaut from '../../images/gatsby-astronaut.png';
+
 const AboutPage = () => (
   <Layout>
     <div>
@@ -16,6 +18,11 @@ const AboutPage = () => (
         duis ullamco mollit qui veniam eiusmod laboris adipisicing.
       </p>
       <Greeting name={`Denis`} />
+      <img
+        style={{width: '180px'}}
+        src={GatsbyAstronaut}
+        alt="Gatsby Astronaut"
+      ></img>
     </div>
     <Link to="/">Go back to the homepage</Link>
   </Layout>
