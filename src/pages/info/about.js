@@ -1,7 +1,8 @@
 import React from 'react';
 import {Link} from 'gatsby';
 
-import Layout from '../components/layout';
+import Layout from '../../components/layout';
+import Greeting from '../../components/greeting';
 
 const AboutPage = () => (
   <Layout>
@@ -14,6 +15,7 @@ const AboutPage = () => (
         occaecat duis aliquip labore non. Voluptate cillum fugiat mollit et quis
         duis ullamco mollit qui veniam eiusmod laboris adipisicing.
       </p>
+      <Greeting name={`Denis`} />
     </div>
     <Link to="/">Go back to the homepage</Link>
   </Layout>
