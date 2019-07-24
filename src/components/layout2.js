@@ -30,6 +30,7 @@ const Layout2 = ({children}) => {
       }}
     >
       <header
+        className="my-background2"
         style={{
           marginBottom: `1.5rem`,
         }}

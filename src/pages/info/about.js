@@ -8,7 +8,7 @@ import GatsbyAstronaut from '../../images/gatsby-astronaut.png';
 
 const AboutPage = () => (
   <Layout>
-    <div>
+    <div className="my-background">
       <h1>About Page</h1>
       <p>
         Nulla pariatur ad mollit irure. Id nostrud amet in dolore amet eiusmod
