@@ -44,24 +44,20 @@ const User = (props) => {
   );
 };
 
-const AboutPage = ({data}, props) => {
-  console.log(props);
-
-  return (
-    <Layout>
-      <div>
-        <h1>About Page</h1>
-        <User
-          username={data.site.siteMetadata.author}
-          avatar={avaImage}
-          excerpt="JS, React and Elm developer"
-        />
-        <br />
-      </div>
-      <Link to="/">Go back to the homepage</Link>
-    </Layout>
-  );
-};
+const AboutPage = ({data}) => (
+  <Layout>
+    <div>
+      <h1>About Page</h1>
+      <User
+        username={data.site.siteMetadata.author}
+        avatar={avaImage}
+        excerpt="JS, React and Elm developer"
+      />
+      <br />
+    </div>
+    <Link to="/">Go back to the homepage</Link>
+  </Layout>
+);
 
 export const query = graphql`
   query {
