@@ -20,7 +20,7 @@ export const query = graphql`
 const FilesInfo = ({data}) => (
   <Layout>
     <div>
-      <h1>My Images</h1>
+      <h1>My Files</h1>
       <table>
         <thead>
           <tr>
