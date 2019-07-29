@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'gatsby';
+import {Link, graphql} from 'gatsby';
 
 import styled from 'styled-components';
 import Layout from '../../components/layout2';
@@ -44,19 +44,33 @@ const User = (props) => {
   );
 };
 
-const AboutPage = () => (
-  <Layout>
-    <div>
-      <h1>About Page</h1>
-      <User
-        username="Denis Popov"
-        avatar={avaImage}
-        excerpt="JS, React and Elm developer"
-      />
-      <br />
-    </div>
-    <Link to="/">Go back to the homepage</Link>
-  </Layout>
-);
+const AboutPage = ({data}, props) => {
+  console.log(props);
+
+  return (
+    <Layout>
+      <div>
+        <h1>About Page</h1>
+        <User
+          username={data.site.siteMetadata.author}
+          avatar={avaImage}
+          excerpt="JS, React and Elm developer"
+        />
+        <br />
+      </div>
+      <Link to="/">Go back to the homepage</Link>
+    </Layout>
+  );
+};
+
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        author
+      }
+    }
+  }
+`;
 
 export default AboutPage;
