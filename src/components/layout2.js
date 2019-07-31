@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link, StaticQuery, graphql} from 'gatsby';
+import Img from 'gatsby-image';
 
 const ListLink = (props) => {
   return (
@@ -29,41 +30,54 @@ const Layout2 = ({children}) => (
             title
           }
         }
+        file(relativePath: {regex: "/car/"}) {
+          childImageSharp {
+            fluid(maxWidth: 1000) {
+              ...GatsbyImageSharpFluid_tracedSVG
+            }
+          }
+        }
       }
     `}
     render={(data) => (
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: `650px`,
-          padding: `0 1rem`,
-        }}
-      >
-        <header
+      <div>
+        <Img
+          style={{maxHeight: `30vh`}}
+          fluid={data.file.childImageSharp.fluid}
+        />
+        <div
           style={{
-            marginBottom: `1.5rem`,
+            margin: `0 auto`,
+            maxWidth: `650px`,
+            padding: `0 1rem`,
           }}
         >
-          <h3
+          <header
             style={{
-              display: `inline`,
+              marginBottom: `1.5rem`,
             }}
           >
-            {data.site.siteMetadata.title}
-          </h3>
-          <ul
-            style={{
-              listStyle: `none`,
-              float: `right`,
-            }}
-          >
-            <ListLink to="/">Home</ListLink>
-            <ListLink to="/blog">Blog</ListLink>
-            <ListLink to="/page-2">Page 2</ListLink>
-            <ListLink to="/info/about">About</ListLink>
-          </ul>
-        </header>
-        {children}
+            <h3
+              style={{
+                display: `inline`,
+              }}
+            >
+              {data.site.siteMetadata.title}
+            </h3>
+            <ul
+              style={{
+                listStyle: `none`,
+                float: `right`,
+              }}
+            >
+              <ListLink to="/">Home</ListLink>
+              <ListLink to="/blog">Blog</ListLink>
+              <ListLink to="/page-2">Page 2</ListLink>
+              <ListLink to="/info/about">About</ListLink>
+            </ul>
+          </header>
+          {children}
+        </div>
       </div>
     )}
   />
