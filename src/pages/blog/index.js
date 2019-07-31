@@ -1,5 +1,5 @@
 import React from 'react';
-import {graphql} from 'gatsby';
+import {graphql, Link} from 'gatsby';
 import styled from 'styled-components';
 
 import Layout from '../../components/layout2';
@@ -18,11 +18,13 @@ export default ({data}) => (
         return (
           <div key={node.id}>
             <hr />
-            <h3>{node.frontmatter.title}</h3>
-            <p>
-              <i>{node.frontmatter.date}</i>
-            </p>
-            <p>{node.excerpt}</p>
+            <Link to={node.fields.slug} style={{textDecoration: `none`}}>
+              <h3>{node.frontmatter.title}</h3>
+              <p>
+                <i>{node.frontmatter.date}</i>
+              </p>
+              <p>{node.excerpt}</p>
+            </Link>
           </div>
         );
       })}
@@ -42,6 +44,9 @@ export const query = graphql`
             date(formatString: "DD MMMM, YYYY")
           }
           excerpt
+          fields {
+            slug
+          }
         }
       }
     }
